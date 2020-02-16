@@ -1,0 +1,286 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: #f2f6e9;
+}
+/*--- navigation bar ---*/
+.navbar {
+  background:#6ab446;
+}
+.nav-link,
+.navbar-brand {
+  color: #fff;
+  cursor: pointer;
+}
+.nav-link {
+  margin-right: 1em !important;
+}
+.nav-link:hover {
+  color: #000;
+}
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+/* .header {
+  background-image: url("header-background.jpg");
+} */
+
+/* #head {
+  text-align: center;
+} */
+
+.logo-intro .h1 {
+  padding: 200px
+}
+
+.d-flex {
+  padding-top: 100px
+}
+/*
+all colors are pastels
+#22628f - dark blue
+#00d3bb - green
+#dee5e5 - pink
+#afc2d5 - light blue
+#ccddd3 - light green
+*/
+/*
+body{
+  background-color: #afc2d5;
+  background-image: url(stars.png) %50 no repeat;
+  color: #fff;
+}
+
+body *{
+  font-family: font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,h2,h3,h4,h5{
+  font-weight: normal;
+  margin:0;
+}
+
+a, a:hover, a:visited{
+  color: #fff;
+  text-decoration: none;
+}
+
+.wrapper{
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+header{
+   background-color: #532f4b;
+}
+
+header.wrapper h1{
+  padding-left: 30px;
+}
+
+div.wrapper h1{
+  text-align: center;
+  margin: 100 px auto;
+  font-size: 2.4em;
+  padding-top: 50px;
+}
+
+.query-result{
+  text-align: center;
+  margin: 100 px auto;
+  font-size: 1.0em;
+  padding-top: 20px
+}
+
+header{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 30px 0;
+}
+
+.header-links{
+  padding-left: 220px;
+  padding-top: 100px;
+  display: grid;
+  grid-template-columns: 2fr 1fr
+}
+
+.search-container{
+  padding-left: 25px
+}
+
+
+.search-submit{
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  font-size: 1.0em;
+}
+
+nav li{
+  display: inline-block;
+  margin-left: 0px;
+  padding-right: 10px
+}
+
+nav button{
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  font-size: 1.0em;
+}
+
+.blogs{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  padding-top: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.blog{
+  padding: 10px;
+  border: 1px solid #00dba0;
+  position: relative;
+  padding-bottom: 40px;
+  background-color: #644E58
+}
+
+
+.blog h2{
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.blog .author{
+  padding: 10px;
+  background: #00dba0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  color:#0f121f
+}
+
+.blog-detail .blog{
+  padding: 10px
+}
+
+.blog-detail .blog img{
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog-detail .blog h2{
+  text-align: center;
+  font-size: 1.4em;
+  padding-top: 30px
+
+}
+
+
+.blog-detail .blog p{
+  text-align: center;
+}
+
+.blog-detail .blog ul{
+  text-align: center;
+  display: grid;
+  grid-template-columns: ;
+  list-style-type: none;
+}
+
+.no-query{
+  text-align: center;
+}
+
+.pagination{
+  text-align: center;
+  padding-top: 40px;
+}
+
+.site-form{
+  margin-top: 60px;
+  border: 1px solid #00dba0;
+  padding: 20px
+}
+
+.site-form input, .site-form textarea{
+  display: block;
+  margin: 20px 0 0 0;
+  padding: 20px;
+}
+
+a.highlight{
+  border:1px solid #00dba0;
+  paddin: 10px;
+  border-radius: 4px;
+  color: #00dba0
+}
+
+.create-blog h2{
+  padding-top: 40px;
+  padding-left: 40px
+}
+
+.helptext, .helptext ul{
+  margin: 0 auto 20px
+  color: #bbb;
+  font-size: 0.9em
+}
+
+.errorlist li{
+  padding: 10px;
+  list-style-type: none;
+  border: 1px solid #ff5722;
+  color: #ff5722
+  margin: 10px 0;
+}
+
+.errorlist{
+  padding: 0
+}
+
+.site-form input[type="submit"]{
+  background: #00dba0;
+  border: 0;
+  color: #fff;
+  font-size: 1.2em;
+  border-radius: 4px;
+
+.wrapper .external{
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) 100px 100px 100px 100px 200px;
+
+  grid-gap: 15px;
+}
+
+.external__item--5{
+    font-size: 0.7em;
+    padding: 10px
+}
+
+footer .wrapper{
+  padding-left: 110px;
+  padding-top: 55px
+}
+
+*/
+.page-container .main-container {
+ min-height: 100vh;
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 100px;
+}
+
+
+#foot {
+  text-align: center;
+}
