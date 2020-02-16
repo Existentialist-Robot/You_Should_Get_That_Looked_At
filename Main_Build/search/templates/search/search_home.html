@@ -1,0 +1,20 @@
+{% extends 'base_layout.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+
+<div class="description">
+  <h1>You Should Get That Looked At!</h1>
+</div>
+
+  <div class="mission-container">
+    <div class="logo-intro">
+      <h1><a href="{% url 'home' %}"><img src="{% static 'dermatitis.png' %}" width="150"  height="150"/></a></h1>
+      <p>Welcome to the YeetBrain's latest project.
+        <br>Here we establish an open source and friendly user interface for uploading images to classify various skin ailments.
+        <br>Users have the option to create a personalize account in which to save images to understand changes in skin condition over time.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

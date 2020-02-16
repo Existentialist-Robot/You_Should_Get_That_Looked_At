@@ -1,0 +1,70 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+  <h1>Upload Your Rash Pics Today!</h1>
+  <form id="site-form" class="site-form" action="{% url 'search:upload' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    {% if request.GET.next %}
+      <input type="hidden" name="next" value="{{request.GET.next}}">
+    {% endif %}
+    <input type="submit" value="Upload">
+  </form>
+{% endblock %}
+
+
+<style>
+
+  #site-form{
+    margin-top: 60px;
+    border: 1px solid #00dba0;
+    padding: 20px
+  }
+
+  .site-form input, .site-form textarea{
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 20px;
+  }
+}
+
+
+
+</style>
+
+<!--
+<h1>Upload Your Rash Pics Today!</h1>
+<form class="site-form" action="{% url 'search:upload' %}" method="post">\
+  <div class="form-group">
+      <label for="title">Title</label>
+      <input type="title" class="form-control" id="title" placeholder="Title">
+  </div>
+  <!-- {% csrf_token %}
+  {{form}}
+  <div class="form-group">
+      <label for="slug">slug</label>
+      <input type="slug" class="form-control" id="slug" placeholder="slug">
+  </div>
+  <div class="form-group">
+      <label for="body">Password</label>
+      <input type="body" class="form-control" id="body" placeholder="body">
+  </div>
+  <label>Upload Image</label>
+  <div class="input-group">
+      <span class="input-group-btn">
+          <span class="btn btn-default btn-file">
+              Browse… <input type="file" id="thumb">
+          </span>
+      </span>
+      <input type="text" class="form-control" readonly>
+  </div>
+  <img id='img-upload'/>
+  <div class="form-group">
+      <label for="tags">Password</label>
+      <input type="tags" class="form-control" id="tags" placeholder="tags">
+  </div>
+  {% if request.GET.next %}
+    <input type="hidden" name="next" value="{{request.GET.next}}">
+  {% endif %}
+  <input type="submit" value="Upload">
+</form> -->

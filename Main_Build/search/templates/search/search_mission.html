@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+{% load static from staticfiles %}
+
+
+{% block content %}
+  <div class="mission-container">
+    <div class="logo-intro">
+      <h1><a href="{% url 'home' %}"><img src="{% static 'Logo.svg' %}" width="150"  height="150"/></a></h1>
+      <p>Welcome to Paranoid Andriod's latest project.<br> Here we establish an open source and friendly user interface for querying images from NeoSSAT. <br> NeoSSAT is a Canadian Space Agency satellite that came online in 2013 .</p>
+    </div>
+  </div>
+{% endblock %}

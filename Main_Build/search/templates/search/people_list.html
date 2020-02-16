@@ -1,0 +1,24 @@
+{% extends 'base_layout.html' %}
+{% load static from staticfiles %}
+
+
+{% block content %}
+  <div class="team-container">
+    <h1><a href="{% url 'home' %}"><img src="{% static 'dermatitis.png' %}" width="150"  height="150"/></a></h1>
+    <p>Welcome to the YeetBrain team!<br><br></p>
+    <p>We are a multi-disciplinary group with expertise ranging from Fine Arts and Design to Mining Engineering!<br><br></p>
+    <p></p>
+  </div>
+    <div class = "peoples">
+      {% for people in peoples %}
+        <div class="people-indiv">
+          <img src="{{people.thumb.url}}" width="200"  height="150"/>
+          <div class="people-text">
+            <h2><a href="{% url 'search:people_detail' slug=people.slug %}">{{people.name}}</a></h2>
+            <p>{{people.role}}</p>
+            <p>{{people.snippet}}</p>
+          </div>
+        </div>
+      {% endfor %}
+  </div>
+{% endblock %}

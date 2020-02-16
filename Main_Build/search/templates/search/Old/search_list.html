@@ -1,0 +1,64 @@
+{% extends 'base_layout.html' %}
+{% load static from staticfiles %}
+
+
+{% block content %}
+  <div class="mission-container">
+    <div class="logo-intro">
+      <h1><a href="{% url 'home' %}"><img src="{% static 'CanadaNeuroTech_logo_2.png' %}" width="240"  height="180"/></a></h1>
+      <p>Welcome to Canada NeuroTech.<br> We are dedicated to providing high quality and low cost non-pharmacological methods of managing ADHD in children and adults. We utilize machine learning and consumer grade EEG hardware.</p>
+    </div>
+    <div class="research-link">
+      <p>Our systems operate on the principles of neurofeedback, which has been shown to be affective for managing symptoms in a number of populations. Learn more about relevant publications <a href="{% url 'papers' %}">here.</a></p>
+    </div>
+    <div class="product-link">
+      <p>With our first line of mobile phone applications scheduled for release in March of 2020, we hope to make Brain Computer Interfaces (BCIs) available to all that could benefit. Learn more about our upcoming product line <a href="{% url 'product' %}">here.</a></p>
+    </div>
+  </div>
+  <div class="article-title">
+    {% if query %}
+      <h1>Search Results</h1>
+    {% elif tag %}
+      <h1>Tagged Article List</h1>
+    {% else %}
+      <h1>Recent Events</h1>
+    {% endif %}
+  </div>
+  <div class='query-result'>
+    {% if query %}
+      <h2>Articles containing "{{ query }}"</h2>
+    {% endif %}
+    {% if tag %}
+      <h2>Articles tagged with "{{ tag.name }}"</h2>
+    {% endif %}
+  </div>
+    <div class = "articles">
+      {% for article in articles %}
+        <div class="article">
+          <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{article.title}}</a></h2>
+          <p>{{q}}
+          <p>{{article.snippet}}</p>
+          <p>{{article.date}}</p>
+          <!-- <p>{{blog.tags.all|join:", "}}</p> -->
+          <p class="tags">
+            Tags:
+            {% for tag in article.tags.all %}
+              <a href="{% url 'articles:article_list_by_tag' tag_slug=tag.slug %}">
+                {{ tag.name }}
+              </a>
+              {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        <p class="author">added by {{article.author}}</p>
+        <!-- <p class="author">added by {{article.author.username}}</p> -->
+      </div>
+    {% endfor %}
+  </div>
+  {% if query and not articles %}
+    <div class="no-query"
+      <p> No Result </p>
+      <p>There were no results matching your search: "{{query}}".</p>
+    </div>
+  {% endif %}
+  {% include "pagination.html" with page=articles %}
+{% endblock %}

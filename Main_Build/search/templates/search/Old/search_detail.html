@@ -1,0 +1,50 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="blog-detail">
+  <div class="blog">
+    <img src="{{blog.thumb.url}}"/>
+    <h2>{{blog.title}}</h2>
+    <p>{{blog.body}}</p>
+    <p>{{blog.date}}</p>
+    <p>{{blog.tags.all|join:", "}}</p>
+    <!-- {% for tag in tags %}
+      <h2><a href="{% url 'blog:search' tags=blog.tags %}">{{blog.tags}}</a></h2>
+    {% endfor %} -->
+  </div>
+  <div class="comment-details">
+    {% with comments.count as total_comments %}
+      <h2>
+        {{ total_comments }} comment{{ total_comments|pluralize }}
+      </h2>
+    {% endwith %}
+    {% for comment in comments %}
+      <div class="comment">
+        <p class="info">
+          Comment {{ forloop.counter }} by {{ comment.author }}
+          {{ comment.date }}
+        </p>
+          {{ comment.body| linebreaks }}
+      </div>
+    {% empty %}
+      <p>There are no comments yet. </p>
+    {% endfor %}
+    {% if new_comment %}
+      <h2>Your comment has been added.<h2>
+    {% else %}
+      <h2>Add new comment.</h2>
+      <form action="." method="post">
+        {% csrf_token %}
+        {{comment_form.as_p}}
+        <input type="submit" value="Add Comment">
+      </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+
+<!-- <p>{{blog.tags.all|join:", "}}</p> -->
+<!-- add in a list of tags that are each selectable and will reroute you to a page with all articles baring the same tag -->
+<!-- Call the search_slug from the blog.url file
+<!-- <li><a href="{% url 'taggit:Search' %}">Search</a></li> -->

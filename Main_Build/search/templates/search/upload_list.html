@@ -1,0 +1,114 @@
+{% extends 'base_layout.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+<div class="description" id=big_tit>
+  <h1>You Should Get That Looked At!</h1>
+</div>
+
+<div class="mission-container">
+  <div class="logo-intro">
+    <h1><a href="{% url 'home' %}"><img src="{% static 'dermatitis.png' %}" width="150"  height="150"/></a></h1>
+    <p id="story">Welcome to the YeetBrain's latest project.
+      <br>Here we establish an open source and friendly user interface for uploading personal images in order to classify various skin ailments.
+      <br>Users have the option to create a personalize account in which to save images to understand changes in skin condition over time.
+    </p>
+  </div>
+</div>
+
+{% if query %}
+  <h1 id="title">Search Results</h1>
+{% elif tag %}
+  <h1 id="title">Tagged Upload List</h1>
+{% else %}
+  <h1 id="title">Uploads Feed</h1>
+{% endif %}
+<div class='query-result'>
+  {% if query %}
+    <h2>Uploads containing "{{ query }}"</h2>
+  {% endif %}
+  {% if tag %}
+    <h2>Uploads tagged with "{{ tag.name }}"</h2>
+  {% endif %}
+
+  </div>
+    <div class = "uploads-containers" id="upload_container">
+      {% for upload in uploads %}
+        <div class="upload-contain" id="upload_indiv">
+          <img src="{{upload.thumb.url}}" id="gross_pic"/>
+          <h2><a href="{% url 'search:upload_detail' slug=upload.slug %}">{{upload.title}}</a></h2>
+          <p>{{q}}
+          <p>{{upload.snippet}}</p>
+          <p>{{upload.date}}</p>
+          <!-- <p>{{blog.tags.all|join:", "}}</p> -->
+          <p class="tags">
+            Tags:
+            {% for tag in upload.tags.all %}
+              <a href="{% url 'search:upload_list_by_tag' tag_slug=tag.slug %}">
+                {{ tag.name }}
+              </a>
+              {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+          <p class="author">added by {{upload.author.username}}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% if query and not uploads %}
+    <div class="no-query"
+      <p> No Result </p>
+      <p>There were no results matching your search: "{{query}}".</p>
+    </div>
+  {% endif %}
+  {% include "pagination.html" with page=uploads %}
+
+  <style>
+
+  #big_tit {
+    text-align: center;
+    padding-bottom: 45px;
+  }
+
+  h1,h3 {
+    text-align: center;
+  }
+
+  #story {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 25px;
+    padding-botom: 50px;
+  }
+
+  #upload_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+    padding-top: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 25px
+}
+
+  #upload_indiv {
+    padding: 100px;
+    border: 1px solid #00dba0;
+    position: relative;
+    padding-bottom: 40px;
+
+}
+
+  #title {
+    padding-top: 60px;
+
+  #gross_pic {
+    padding-bottom: 40px;
+  }
+
+
+
+  </style>
+
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="people-detail">
+  <div class="people">
+    <img src="{{people.thumb.url}}" width="240"  height="240" />
+    <h2>{{people.name}}</h2>
+    <p>{{people.role}}</p>
+    <p>{{people.body|linebreaks}}</p>
+  </div>
+</div>
+{% endblock %}

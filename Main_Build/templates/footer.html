@@ -1,0 +1,45 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<div id="before">
+  <footer class="footer" id="foot">
+    <div class="footer">
+      <figure class="external__item--1" id="footing">
+        <a href="https://calgaryhacks-2020.devpost.com/?ref_content=default&ref_feature=challenge&ref_medium=portfolio"><img src="{% static 'Dev_Post.png' %}" height="50" width="50"/></a>
+      </figure>
+      <figure class="external__item--2" id="footing">
+        <a href="https://www.ucalgary.ca/"><img src="{% static 'UofC.png' %}" height="50" width="70"/></a>
+      </figure>
+      <figure class="external__item--3" id="footing">
+        <a href="https://www.linkedin.com/in/eden-redman-neuro/"><img src="{% static 'linkedin.png' %}" height="50" width="50"/></a>
+      </figure>
+      <figure class="external__item--4" id="footing">
+        <a href="https://github.com/Existentialist-Robot/You_Should_Get_That_Looked_At"><img src="{% static 'GitHub.png' %}" height="50" width="50"/></a>
+      </figure>
+      <figure class="external__item--5" id="footing">
+        <p>YeetBrain © 2019</p>
+      </figure>
+    </div>
+  </footer>
+</div>
+
+<style>
+
+
+#foot {
+  background-color: yellow;
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#footing {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+}
+
+
+</style>
