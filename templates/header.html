@@ -1,0 +1,33 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<header class="page-header header container-fluid" id="head">
+  <nav class="navbar navbar-expand-lg navbar-dark  scrolling-navbar">
+    <a class="navbar-brand" href='{% url 'search:home' %}'>You Should Get That Looked At</a>
+    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="search-container">
+      <form class="search-form" method="GET" action=""/>
+        <li><input class="search-text" type="text" name="q" placeholder="Search Images" value="{{ request.GET.q }}"/></li>
+        <li><input class="search-submit" type="submit" value="Search"/></li>
+      </form>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navigation">
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+          <button type="button" class="btn btn-secondary" onclick="location.href='{% url 'search:home' %}'"> Home </button>
+          <button type="button" class="btn btn-secondary" onclick="location.href='{% url 'team' %}'"> Team </button>
+          <button type="button" class="btn btn-secondary" onclick="location.href='{% url 'search:Contact' %}'"> Contact Us </button>
+          <button type="button" class="btn btn-secondary" onclick="location.href='{% url 'search:upload' %}'"> Profile </button>
+          <button type="button" class="btn btn-secondary" onclick="location.href='{% url 'accounts:Logout' %}'"> Logout </button>
+        {% else %}
+          <button type="button" class="btn btn-secondary" onclick="location.href='{% url 'search:home' %}'"> Home </button>
+          <button type="button" class="btn btn-secondary" onclick="location.href='{% url 'team' %}'"> Team </button>
+          <button type="button" class="btn btn-secondary" onclick="location.href='{% url 'search:Contact' %}'"> Contact Us </button>
+          <button type="button" class="btn btn-secondary" onclick="location.href='{% url 'accounts:Login' %}'"> Login </button>
+          <button type="button" class="btn btn-secondary" onclick="location.href='{% url 'accounts:Signup' %}'"> Signup </button>
+          {% endif %}
+      </ul>
+    </div>
+  </nav>
+</header>
